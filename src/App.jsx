@@ -8,7 +8,7 @@ import Login from "./pages/Login";
 import Sidebar from "./layout/Sidebar";
 import Topbar from "./layout/Topbar";
 import ErrorPage  from "./pages/404";
-
+import LandingPage from './pages/LandingPage'
 import Dashboard from "./components/Dashboard";
 
 import UserForm  from './components/UserForm'
@@ -62,6 +62,7 @@ function App() {
             )}
             <Route path="signup" element={<UserForm />} />
             <Route path="/*" element={<ErrorPage />} />
+            <Route path="landing" element={<LandingPage />} />
           </Routes>
         </div>
       </div>
