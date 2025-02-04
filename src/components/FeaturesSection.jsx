@@ -26,6 +26,17 @@ export default function FeaturesSection({ language }) {
         am: "በምእመናን ተመላላሽ ትንታኔ ለመወሰን የምእመናን መረጃዎችን በቀጥታ ያገኙ።",
       },
     },
+    {
+        image: "/DALL·E 2025-02-04 19.23.16 - An Ethiopian TikToker filming a video in front of a shop that is closing. The scene shows an influencer looking directly at the camera while holding a.webp",  // Add actual image path
+        title: {
+          en: "Real-Time Analytics",
+          am: "በምእመናን ተመላላሽ ትንታኔ",
+        },
+        description: {
+          en: "Access real-time insights to make informed decisions and drive your strategy.",
+          am: "በምእመናን ተመላላሽ ትንታኔ ለመወሰን የምእመናን መረጃዎችን በቀጥታ ያገኙ።",
+        },
+      },
     // Add more features as needed
   ];
 
@@ -58,7 +69,7 @@ export default function FeaturesSection({ language }) {
                   src={feature.image}
                   alt={`Feature ${index + 1}`}
                   className="w-full h-full object-cover rounded-lg shadow-lg"
-                  style={{ maxHeight: "200px", objectFit: "cover" }}
+                //   style={{ maxHeight: "200px", objectFit: "cover" }}
 
                 />
               </div>
@@ -68,8 +79,8 @@ export default function FeaturesSection({ language }) {
                 <h1 className="text-xl font-extrabold text-gray-800 mb-4">
                   {feature.title[language]}
                 </h1>
-                <p className="flex text-base text-gray-700 font-light">
-                  {feature.description[language]}
+                <p className="flex text-base text-gray-700 font-light break-words">
+                {feature.description[language]}
                 </p>
               </div>
             </motion.div>

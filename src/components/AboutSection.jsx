@@ -51,7 +51,7 @@ export default function AboutSection({ language }) {
             className="flex-1 max-w-[50%] mx-auto" // Ensure container takes 30% width of the section and is centered
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 1 }}
           >
             <div className="relative w-full  h-0 pb-[50%]"> {/* Aspect ratio of 1:1 */}
               {/* <img

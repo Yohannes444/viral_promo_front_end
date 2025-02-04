@@ -12,8 +12,8 @@ export default function HomePage() {
     <div>
       <HeroSection language={language} setLanguage={setLanguage} />
       <AboutSection language={language} />  
-      <FeaturesSection language={language} />  {/* Use FeaturesSection */}
-      <TestimonialSection language={language} />        {/* You can add other sections here as you build them */}
+      <FeaturesSection language={language} />  
+      <TestimonialSection language={language} />       
     </div>
   );
 }
