@@ -39,7 +39,7 @@ export default function AboutSection({ language }) {
   }, [features.length]);
 
   return (
-    <div className="py-20 bg-gray-100 mt-8 ">
+    <div className="py-20  mt-8 ">
       <div className="container mx-auto px-4">
         {/* Render only the current feature */}
         <div
@@ -52,6 +52,7 @@ export default function AboutSection({ language }) {
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1 }}
+            
           >
             <div className="relative w-full  h-0 pb-[50%]"> {/* Aspect ratio of 1:1 */}
               {/* <img
