@@ -68,7 +68,7 @@ function App() {
                 <Routes >
                   <Route path="/" element={<LandingPage language={language}  />} />
                   <Route path="/influencers" element={<InfluencerPage language={language} />} />
-                  <Route path="/signup" element={<UserForm />} />
+                  <Route path="/signupkkk" element={<UserForm />} />
                   <Route path="/login" element={<Login />} />
                   <Route path="/*" element={<ErrorPage />} />
                 </Routes>
