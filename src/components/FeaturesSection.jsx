@@ -53,7 +53,7 @@ export default function FeaturesSection({ language }) {
     <div className="py-20 mt-8"> 
       <div className="mx-auto px-4 py-7 relative"
         style={{
-          backgroundImage: `url('/map-of-the-world-2401458_1280.jpg')`,
+          backgroundImage: `url('/pexels-abdullah-aljaberti-979801-14391906.jpg')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}

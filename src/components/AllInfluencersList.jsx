@@ -25,7 +25,7 @@ const AllInfluencersList = ({ language, setSelectedInfluencerw }) => {
   useEffect(() => {
     const fetchInfluencers = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/influencers');
+        const response = await axios.get('https://viral-promo-backend.onrender.com/influencers');
         setInfluencers(response.data);
         setLoading(false);
       } catch (error) {

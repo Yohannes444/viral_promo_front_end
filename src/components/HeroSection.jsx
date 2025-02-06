@@ -4,8 +4,8 @@ import { Globe, Users, Menu, X } from "lucide-react";
 import { motion } from "framer-motion";
 
 const images = [
-  "/DALL·E 2025-02-04 17.52.13.webp",
-  "/DALL·E 2025-02-04 19.25.04.webp",
+  "/DALL·E 2025-02-04 19.27.06 - A realistic wide-angle scene of an Ethiopian TikToker filming a video inside a clothing shop. The influencer, a stylish Ethiopian woman with slightly .webp",
+  "/DALL·E 2025-02-04 19.25.04 - A realistic wide-angle scene of an Ethiopian TikToker filming a video inside a clothing shop. The influencer, a stylish Ethiopian woman with slightly .webp",
   "/image (14).png"
 ];
 
