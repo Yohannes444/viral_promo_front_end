@@ -40,11 +40,13 @@ export default function AboutSection({ language }) {
 
   return (
     <div className="py-20  mt-8 ">
-      <div className="container mx-auto px-4">
-        {/* Render only the current feature */}
+                  <h2 className="text-4xl text-white font-bold ml-9 pb-6 mb-6">{language === 'en'?"About Us":"ስለኛ"}</h2>
+
+      <div className="container mx-auto ">
+        {/* Render only the current feature features section */}
         <div
           key={currentFeatureIndex}
-          className="flex items-center justify-between space-x-12 mb-16"
+          className="flex items-center justify-between space-x-12 "
         >
           {/* Left Section - Image Container */}
           <motion.div
@@ -54,7 +56,7 @@ export default function AboutSection({ language }) {
             transition={{ duration: 1 }}
             
           >
-            <div className="relative w-full  h-0 pb-[50%]"> {/* Aspect ratio of 1:1 */}
+            <div className="relative w-full  h-0 pb-[25%]"> {/* Aspect ratio of 1:1 */}
               {/* <img
                 src={features[currentFeatureIndex].image}
                 alt={`Feature ${currentFeatureIndex + 1}`}
@@ -77,10 +79,10 @@ export default function AboutSection({ language }) {
             transition={{ duration: 0.8 }}
           >
             {/* Title */}
-            <h1 className="text-3xl font-extrabold mb-4 text-gray-800 font-serif">
+            <h1 className="text-3xl font-extrabold mb-4 text-white font-serif">
               {features[currentFeatureIndex].title[language]}
             </h1>
-            <p className="text-lg text-gray-700 font-light">
+            <p className="text-lg text-white font-light">
               {features[currentFeatureIndex].description[language]}
             </p>
           </motion.div>

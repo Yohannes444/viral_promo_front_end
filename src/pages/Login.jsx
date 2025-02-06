@@ -25,22 +25,6 @@ export default function SignIn() {
   const [loading, setLoading] = useState(false); // State to manage loading spinner
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const fetchUser = async () => {
-      try {
-        const response = await axios.get(`${import.meta.env.VITE_REACT_APP_VITE_API_URL}/user`);
-        console.log("fetch users: ",response.data.length );
-        if (response.data.length < 1) {
-          navigate("/signup");
-        }
-      } catch (error) {
-        console.error("Error fetching user:", error);
-        navigate("/signup");
-      }
-    };
-
-    fetchUser();
-  }, [navigate]); 
 
   const handleLogin = async () => {
     setLoading(true);

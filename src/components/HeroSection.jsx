@@ -1,16 +1,17 @@
 import { useState, useEffect } from "react";
-import { Button } from "@mui/material";
-import { Globe, Users } from "lucide-react";
+import { Button, Dialog, DialogContent, IconButton } from "@mui/material";
+import { Globe, Users, Menu, X } from "lucide-react";
 import { motion } from "framer-motion";
 
 const images = [
-  "/DALL·E 2025-02-04 17.52.13 - A professional female Ethiopian influencer promoting a designer bag in Addis Ababa, captured in a TikTok-style video frame on a phone screen. The infl.webp",
-  "/DALL·E 2025-02-04 19.25.04 - A realistic wide-angle scene of an Ethiopian TikToker filming a video inside a clothing shop. The influencer, a stylish Ethiopian woman with slightly .webp",
+  "/DALL·E 2025-02-04 17.52.13.webp",
+  "/DALL·E 2025-02-04 19.25.04.webp",
   "/image (14).png"
 ];
 
 export default function HeroSection({ language, setLanguage }) {
   const [currentImage, setCurrentImage] = useState(0);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -38,24 +39,24 @@ export default function HeroSection({ language, setLanguage }) {
       Services: "Influencers",
       Contact: "Services",
       Influencers: "Influencers",
-
     },
     am: {
       About_Us: "ስለኛ",
       Influencers: "ኢንፍሉዌንሰሮች",
       Services: "አገልግሎቶች",
       Contact: "መልክት ለመላክ",
-
     },
   };
 
   return (
-    <div   className="relative flex flex-col items-center justify-center h-[500px] bg-cover bg-center text-white text-center p-4"
-    style={{ backgroundImage: `url('${images[currentImage]}')` }}>
+    <div
+      className="relative flex flex-col items-center justify-center h-[500px] bg-cover bg-center text-white text-center p-4"
+      style={{ backgroundImage: `url('${images[currentImage]}')` }}
+    >
       <div className="absolute inset-0 bg-black bg-opacity-60"></div>
-      
-      {/* Navigation Bar left and wright */}
-      <nav className="absolute top-0 left-45 right-45 w-100 bg-gray-200  bg-opacity-50  rounded-b-xl shadow-md py-9  px-8 flex justify-center space-x-6">
+
+      {/* Navigation Bar - Visible on large screens, hidden on small screens */}
+      <nav className="absolute top-0 left-45 right-45 w-auto bg-gray-200 bg-opacity-50 rounded-b-xl shadow-md py-9 px-8 flex justify-center space-x-6 hidden md:flex">
         <div className="flex items-center space-x-4">
           <div className="w-10 h-10 bg-black rounded-full"></div>
           <ul className="flex space-x-6 text-white font-medium">
@@ -65,13 +66,38 @@ export default function HeroSection({ language, setLanguage }) {
             <li>{headers[language].Contact}</li>
           </ul>
         </div>
-        <Button variant="contained" startIcon={<Globe />} onClick={() => setLanguage(language === "en" ? "am" : "en")}>
+        <Button
+          variant="contained"
+          startIcon={<Globe />}
+          onClick={() => setLanguage(language === "en" ? "am" : "en")}
+        >
           {language === "en" ? "አማርኛ" : "English"}
         </Button>
       </nav>
-      
-      
 
+      {/* Mobile Navigation Button - Visible only on small screens */}
+      <div className="absolute top-4 right-4 md:hidden">
+        <IconButton onClick={() => setIsMenuOpen(true)}>
+          <Menu size={24} className="text-white" />
+        </IconButton>
+      </div>
+
+      {/* Mobile Menu Modal */}
+      <Dialog open={isMenuOpen} onClose={() => setIsMenuOpen(false)} fullScreen>
+        <DialogContent className="bg-gray-900 text-white flex flex-col items-center justify-center h-full space-y-6">
+          <IconButton className="absolute top-4 right-4" onClick={() => setIsMenuOpen(false)}>
+            <X size={30} className="text-white" />
+          </IconButton>
+          <ul className="text-2xl space-y-4">
+            <li onClick={() => setIsMenuOpen(false)}>{headers[language].About_Us}</li>
+            <li onClick={() => setIsMenuOpen(false)}>{headers[language].Influencers}</li>
+            <li onClick={() => setIsMenuOpen(false)}>{headers[language].Services}</li>
+            <li onClick={() => setIsMenuOpen(false)}>{headers[language].Contact}</li>
+          </ul>
+        </DialogContent>
+      </Dialog>
+
+      {/* Hero Content */}
       <motion.h1 className="text-6xl font-extrabold mb-4 drop-shadow-lg z-10" initial={{ opacity: 0, y: -50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }}>
         {content[language].headline}
       </motion.h1>

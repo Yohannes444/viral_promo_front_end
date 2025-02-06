@@ -11,15 +11,16 @@ import ErrorPage  from "./pages/404";
 import LandingPage from './pages/LandingPage'
 import Dashboard from "./components/Dashboard";
 import UserForm  from './components/UserForm'
-
+import HeroSection from './components/HeroSection';
+import Footer from './components/footer';
+import InfluencerPage from './pages/InfluencerlistPage'
 
 function App() {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
   const user = useSelector(selectUser);
 
-  console.log(user)
-
+  const [language, setLanguage] = useState('en');
 
 
   useEffect(() => {
@@ -38,31 +39,47 @@ function App() {
   return (
     <div>
       
-      {user && user.token && <Topbar userRole={user.user.role} />}
-      <div style={{ padding: "0px" }}>
-        {user && user.token && <Sidebar userRole={user.user.role} />}
-        <div style={{ marginLeft: user && user.token ? 200 : 0 }}>
-          <Routes>
+      <div >
+        <div >
             {user && user.token ? (
-              user.user.role === "cashier" ? (
+              user.user.role === "admin" ? (
                 <>
-                  <Route path="/" element={<Navigate to="/dashboard" />} />
-                  <Route path="/dashboard" element={<Dashboard userRole={user.user.role} />} />
+                  {user && user.token && <Sidebar userRole={user.user.role} />}
+                  {user && user.token && <Topbar userRole={user.user.role} />}
+                  <Routes>
+                    <Route path="/" element={<Navigate to="/dashboard" />} />
+                    <Route path="/dashboard" element={<Dashboard userRole={user.user.role} />} />
+                  </Routes>
+                 
 
                 </>
               ) : user.user.role === "Manager" ? (
                 <>
-                  <Route path="/" element={<Navigate to="/dashboard" />} />
-                  <Route path="/dashboard" element={<Dashboard userRole={user.user.role} />} />
+                  <Routes>
+                    <Route path="/" element={<Navigate to="/dashboard" />} />
+                    <Route path="/dashboard" element={<Dashboard userRole={user.user.role} />} />
+                  </Routes>
                 </>
               ) : null
             ) : (
-              <Route path="/" element={<Login />} />
+              <div className='bg-gray-900'>                  
+              <HeroSection language={language} setLanguage={setLanguage} />
+
+                <Routes >
+                  <Route path="/" element={<LandingPage language={language}  />} />
+                  <Route path="/influencers" element={<InfluencerPage language={language} />} />
+                  <Route path="/signup" element={<UserForm />} />
+                  <Route path="/login" element={<Login />} />
+                  <Route path="/*" element={<ErrorPage />} />
+                </Routes>
+
+
+                <Footer language={language} />
+
+              </div>
+
             )}
-            <Route path="signup" element={<UserForm />} />
-            <Route path="/*" element={<ErrorPage />} />
-            <Route path="landing" element={<LandingPage />} />
-          </Routes>
+            
         </div>
       </div>
     </div>

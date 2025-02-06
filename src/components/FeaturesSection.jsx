@@ -50,21 +50,30 @@ export default function FeaturesSection({ language }) {
   }, [features.length]);
 
   return (
-    <div className="py-20  mt-8"   > {/* Set dark background for entire section */}
-      <div className="container mx-auto px-4">
+    <div className="py-20 mt-8"> 
+      <div className="mx-auto px-4 py-7 relative"
+        style={{
+          backgroundImage: `url('/map-of-the-world-2401458_1280.jpg')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
+        <h2 className="flex justify-center text-4xl text-black font-bold pb-7">
+          {language === 'en' ? "Key Features" : "ቁልፍ ተግባሮች"}
+        </h2>
+
         {/* Grid Layout for the cards */}
-        <div className="flex justify-center grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 px-8 gap-9">
           {/* Loop through the features and display them in a grid */}
           {features.map((feature, index) => (
             <motion.button
-              whileHover={{ scale: 1.1 }}
+              key={index}
+              whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              whileDrag={{ scale: 0.9, rotate: 10 }}
-              drag
-              className="bg-gray-700 bg-opacity-50 rounded-lg shadow-lg shadow-white p-6 flex flex-col items-center max-w-xs mx-auto" // Set max-width for the cards and apply opacity
+              className="bg-gray-400 bg-opacity-60 rounded-lg shadow-lg shadow-white p-6 flex flex-col items-center max-w-xs w-full sm:max-w-sm md:max-w-md lg:max-w-lg"
             >
-              {/* Image Section map-of-the-world-2401458_1280.jpg */}
-              <div className="h-48 mb-6 p-4">
+              {/* Image Section */}
+              <div className="h-48 mb-6 p-2">
                 <img
                   src={feature.image}
                   alt={`Feature ${index + 1}`}
@@ -73,8 +82,8 @@ export default function FeaturesSection({ language }) {
               </div>
 
               {/* Title and Description */}
-              <div className="text-center p-4">
-                <h1 className="text-xl font-extrabold text-white mb-4">
+              <div className="text-center p-2">
+                <h1 className="text-xl font-extrabold text-white mb-2">
                   {feature.title[language]}
                 </h1>
                 <p className="text-base text-white font-light break-words">
