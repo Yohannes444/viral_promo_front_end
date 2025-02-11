@@ -37,7 +37,7 @@ export default function FeaturesSection({ language }) {
         am: "በምእመናን ተመላላሽ ትንታኔ ለመወሰን የምእመናን መረጃዎችን በቀጥታ ያገኙ።",
       },
     },
-    // Add more features as needed
+    // Add more features as needed   7REvk6yqQ!A*ay%
   ];
 
   // Auto transition between features every 5 seconds

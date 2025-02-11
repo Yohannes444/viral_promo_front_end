@@ -51,7 +51,7 @@ const AllInfluencersList = ({ language, setSelectedInfluencerw }) => {
 
   const onSubmit = async (data) => {
     try {
-      await axios.post('/api/influencer', { ...data, influencerId: selectedInfluencer._id });
+      await axios.post('https://datingappbackend-tvm5.onrender.com/order', { ...data, influencerId: selectedInfluencer._id });
       toast.success('Booking successful!');
       closeModal();
     } catch (error) {
